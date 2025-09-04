@@ -1,14 +1,16 @@
-# Llama OCR - Easy Text Extraction from Images
+# Llama AI Assistant - Chat & OCR
 
-A Streamlit web application that uses Llama 3.2 Vision to extract and structure text from images with OCR capabilities.
+A Streamlit web application that combines chat functionality with Llama 3.2 and OCR capabilities using Llama 3.2 Vision for text extraction from images.
 
 ## Features
 
-- 🦙 Powered by Llama 3.2 Vision model
-- 📸 Upload images (PNG, JPG, JPEG)
+- 💬 **Chat Interface** - Interactive conversation with Llama 3.2
+- 🦙 Powered by Llama 3.2 and Llama 3.2 Vision models
+- 📸 **OCR Functionality** - Upload images (PNG, JPG, JPEG)
 - 🔍 Extract structured text from images
 - 📝 Output in clean Markdown format
-- 🎨 Modern, user-friendly interface
+- 🎨 Modern, tabbed interface
+- 💾 Chat history persistence during session
 
 ## Prerequisites
 
@@ -18,8 +20,9 @@ Before running this application, you need to have Ollama installed and running o
 
 1. **Download Ollama** from [https://ollama.ai](https://ollama.ai)
 2. **Install Ollama** following the instructions for your operating system
-3. **Pull the Llama 3.2 Vision model**:
+3. **Pull the required models**:
    ```bash
+   ollama pull llama3.2:latest
    ollama pull llama3.2-vision
    ```
 
@@ -47,22 +50,34 @@ Before running this application, you need to have Ollama installed and running o
 
 ## Usage
 
-1. **Upload an image** using the file uploader in the sidebar
-2. **Click "Extract Text 🔍"** to process the image
-3. **View the extracted text** in the main area, formatted as Markdown
+### Chat Tab
+1. **Switch to the "💬 Chat" tab**
+2. **Type your message** in the chat input at the bottom
+3. **Press Enter** to send and receive Llama's response
+4. **Continue the conversation** - chat history is maintained during the session
+
+### OCR Tab
+1. **Switch to the "📸 OCR" tab**
+2. **Upload an image** using the file uploader in the sidebar
+3. **Click "Extract Text 🔍"** to process the image
+4. **View the extracted text** in the main area, formatted as Markdown
 
 ## Requirements
 
 - Python 3.8+
 - Ollama installed and running
-- Llama 3.2 Vision model pulled in Ollama
+- Llama 3.2 and Llama 3.2 Vision models pulled in Ollama
 - Internet connection (for initial model download)
 
 ## Troubleshooting
 
-- **"Model not found" error**: Make sure you've pulled the `llama3.2-vision` model with `ollama pull llama3.2-vision`
+- **"Model not found" error**: Make sure you've pulled both models:
+  - `ollama pull llama3.2:latest` (for chat)
+  - `ollama pull llama3.2-vision` (for OCR)
 - **Connection errors**: Ensure Ollama is running with `ollama serve`
 - **Import errors**: Make sure all dependencies are installed with `pip install -r requirements.txt`
+- **Chat not working**: Verify the `llama3.2:latest` model is available
+- **OCR not working**: Verify the `llama3.2-vision` model is available
 
 ## File Structure
 
